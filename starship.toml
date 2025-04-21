@@ -1,0 +1,121 @@
+format = """
+╭─[  ](bg:#303030 fg:#c7c7c7)\
+$username\
+[](bg:#303030 fg:#707070)\
+$directory\
+$git_branch\
+$git_status\
+[](#303030)
+╰─$character """
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[username]
+show_always = true
+style_user = "fg:#b69676 bg:#303030"
+style_root = "fg:white bg:#303030"
+format = '[$user]($style)'
+disabled = false
+
+[status]
+style = 'bg:#303030'
+symbol = '[✘ ](fg:red bg:#303030)'
+success_symbol = '[✔ ](fg:green bg:#303030)'
+format = '[[$signal_name ](fg:red bg:#303030)$symbol]($style)'
+map_symbol = false
+disabled = false
+
+[character]
+success_symbol = '[❯](bold green)'
+error_symbol = '[✘](fg:red)'
+
+[cmd_duration]
+min_time = 1
+style = 'bg:#303030 fg:#909090'
+format = '[ took [$duration](bold fg:#909090 bg:#303030)  ]($style)'
+
+[hostname]
+ssh_only = false
+style = 'fg:white bg:#303030'
+format = '[@$hostname ]($style)'
+disabled = false
+
+[os]
+style = "bg:#303030"
+disabled = true
+
+[directory]
+style = "fg:white bg:#303030"
+format = "[  $path ]($style)"
+truncation_length = 9
+truncation_symbol = "~/…/"
+truncate_to_repo = true
+home_symbol = '~'
+
+[directory.substitutions]
+"~" = " ~"
+
+[fill]
+symbol = ' '
+
+[c]
+symbol = ""
+style = "bg:#303030"
+format = '[ $symbol ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#303030"
+format = '[ $symbol $context ]($style) $path'
+
+[git_branch]
+style = "fg:white bg:#303030"
+format = '[](fg:#707070 bg:#303030)[  ](fg:#D6D5CB bg:#303030)[](fg:#FFC0CB bg:#303030)[ $branch ](bold $style)'
+truncation_length = 15
+
+[git_status]
+style = "fg:#0a96d6 bg:#303030"
+conflicted = "~"
+up_to_date = " "
+untracked = "?"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = "*"
+modified = " "
+staged = '[++\($count\)](fg:#56b60a bg:#303030)'
+renamed = " "
+deleted = " "
+format = '[$all_status$ahead_behind ]($style)'
+
+[golang]
+symbol = "go"
+style = "fg:#FFFFFF bg:#303030"
+format = '[ $symbol ](bold $style)'
+
+[java]
+symbol = ""
+style = "fg:#0a96d6 bg:#303030"
+format = '[ $symbol ]($style)'
+
+[nodejs]
+symbol = ""
+style = "fg:#0a96d6 bg:#303030"
+format = '[ $symbol ]($style)'
+
+[python]
+symbol = ' '
+style = "fg:#0a96d6 bg:#303030"
+format = '[ $symbol ]($style)'
+
+[rust]
+symbol = ""
+style = "fg:#0a96d6 bg:#303030"
+format = '[ $symbol ]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#303030 fg:#567676"
+format = '[$time ]($style)'
